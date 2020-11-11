@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load admin_urls %}
+{% static "images" as baseUrl %}
+
+    
+
+<!-- END nav -->
+{% block content %}
+    
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{baseUrl}}/{{image}});">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Pricing</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="{% static 'index'%}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Pricing <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+		
+		<section class="ftco-section">
+    	<div class="container">
+    		<div class="row">
+			{% for price in course %}
+        	<div class="col-md-6 col-lg-3 ftco-animate">
+        		<div class="pricing-entry bg-light pb-4 text-center">
+        			<div>
+	        			<h3 class="mb-3">{{price.course_heading}}</h3>
+						{% if price.offer == True %}
+						    <p><span class="price"> {{price.offer_percent}}% OFF {{price.offer_price}} </span> <h5 color="red">{{price.register_before}}</h4></p>
+						{% else %}
+						    <p><span class="price">Rs. {{price.course_price}}</span> <span class="per">/ course</span></p>
+						{% endif %}
+	        		</div>
+	        		<div class="img" style="background-image: url({{baseUrl}}/{{price.course_image}});"></div>
+	        		<div class="px-4">
+	        			<p>{{price.course_description}}</p>
+        			</div>
+        			<p class="button text-center"><a href="{% static '#'%}" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+        		</div>
+        	</div>
+			{% endfor %}
+        </div>
+    	</div>
+    </section>
+
+    
+{% endblock %}
