@@ -1,59 +1,54 @@
 from django.db import models
 
 # Create your models here.
-class Home:
-    home_image1 = str
-    home_image2 = str
-    home_desc1 = str
-    home_desc2 = str
-    home_good_experiance_image = str
-    home_quote_image = str
+class Home(models.Model):
+    home_image1 = models.ImageField(upload_to='pics')
+    home_image2 = models.ImageField(upload_to='pics')
+    home_desc1 = models.TextField()
+    home_desc2 = models.TextField()
+    home_good_experiance_image = models.ImageField(upload_to='pics')
 
-class Welcome:
-    welcome_note = str
+class Welcome(models.Model):
+    welcome_note = models.TextField()
 
-class Inspire:
-    image: str
-    description : str
-    desc_heading : str
+class Inspire(models.Model):
+    image= models.ImageField(upload_to='pics')
+    description = models.TextField()
+    desc_heading = models.CharField(max_length= 100)
 
-class Syas_about_us:
-    description = str
-    Student_name = str
-    Student_image = str
+class Syas_about_us(models.Model):
+    description = models.TextField()
+    Student_name = models.CharField
+    Student_image = models.ImageField(upload_to='pics')
 
 
-class Teachers:
-    id : int
-    teacher_image : str
-    teacher_name : str
-    teacher_subject: str
-    teacher_info :str
-    teacher_message : str
-    teacher_back_img : str
+class Teachers(models.Model):
+    teacher_image = models.ImageField(upload_to='pics')
+    teacher_name = models.CharField(max_length= 100)
+    teacher_subject = models.CharField(max_length= 100)
+    teacher_info = models.CharField(max_length= 100)
+    teacher_message = models.TextField()
+    teacher_back_img = models.ImageField(upload_to='pics')
 
-class Price:
-    id : int
-    course_heading : str
-    course_price : int
-    offer_percent : int
-    register_before : str
-    offer_price : int
-    offer : bool
-    course_image : str
-    course_description : str
-    price_back_img : str
+class Price(models.Model):
+    course_heading = models.CharField(max_length=100)
+    course_price = models.IntegerField()
+    offer_percent = models.IntegerField()
+    register_before = models.CharField(max_length=100)
+    offer_price = models.IntegerField()
+    offer = models.BooleanField(default=False)
+    course_image = models.ImageField(upload_to='pics')
+    course_description = models.TextField()
+    price_back_img = models.ImageField(upload_to='pics')
 
-class Contact:
-    id : int
-    title : str
-    address : str
-    num : str   
-    contact_back_img : str
+class Contact(models.Model):
+    title = models.CharField(max_length=100)
+    address = models.CharField(max_length=100)
+    num = models.IntegerField()
+    contact_back_img = models.ImageField(upload_to='pics')
 
-class Student_info:
-    first_name = str
-    last_name = str
-    course = str
-    phone = int
-    message = str
+class Student_info(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    course = models.CharField(max_length=100)
+    phone = models.IntegerField()

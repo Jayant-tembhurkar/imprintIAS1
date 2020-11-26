@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load admin_urls %}
+{% static "images" as baseUrl %}
+
+    
+
+
+{% block content %}
+
+<section class="ftco-section ftco-consult ftco-no-pt ftco-no-pb" style="background-image: url({{baseUrl}}/{{register.register_image}});" data-stellar-background-ratio="0.5">
+		<div class="container">
+    		<div class="row justify-content-end">
+    			<div class="col-md-6 py-5 px-md-5 bg-primary">
+	          <div class="heading-section heading-section-white ftco-animate mb-5">
+	            <h2 class="mb-4">{{register.register_heading}}</h2>
+	            <p>{{register.register_desc}}</p>
+	          </div>
+	          <form action="" class="appointment-form ftco-animate" method="post" >
+	    			    {% csrf_token %}	
+						<div class="d-md-flex">
+		    				<div class="form-group">
+		    					<input type="text" name="first_name" class="form-control" placeholder="First Name">
+		    				</div>
+		    				<div class="form-group ml-md-4">
+		    					<input type="text" name="last_name" class="form-control" placeholder="Last Name">
+		    				</div>
+	    				</div>
+                        <div class="d-md-flex">
+                            <div class="form-group ml-md-4">
+		    					<input type="password" name="password1" class="form-control" placeholder="password">
+		    				</div>
+                            <div class="form-group ml-md-4">
+		    					<input type="password" name="password2" class="form-control" placeholder="confirm password">
+		    				</div>
+                        </div>
+                        <div class="d-md-flex">
+                            <div class="form-group ml-md-4">
+		    					<input type="text" name="user_name" class="form-control" placeholder="User Name">
+		    				</div>
+                            <div class="form-group ml-md-4">
+		    					<input type="email" name="email" class="form-control" placeholder="email">
+		    				</div>
+                        </div>
+	    				<div class="d-md-flex">
+	    					<div class="form-group">
+		    					<div class="form-field">
+          					<div class="select-wrap">
+                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                      <select name="course" id="" class="form-control">
+                      	<option value="">Select Your Course</option>
+                        <option value="">UPSC</option>
+                        <option value="">MPSC</option>
+                        <option value="">UPSC + MPSC</option>
+                        <option value="">UPSC Test series</option>
+                        <option value="">MPSC Test series</option>
+                      </select>
+                    </div>
+		              </div>
+		    				</div>
+	    					<div class="form-group ml-md-4">
+		    					<input type="text" name="phone" class="form-control" placeholder="Phone">
+		    				</div>
+	    				</div>
+	    				<div class="d-md-flex">
+		            <div class="form-group ml-md-4">
+		              <input type="submit" value="Register" class="btn btn-secondary py-3 px-4">
+		            </div>
+	    				</div>
+	    			</form>
+    			</div>
+        </div>
+    	</div>
+    </section>
+    <br>
+
+{% endblock %}

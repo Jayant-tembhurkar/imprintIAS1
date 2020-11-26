@@ -9,7 +9,7 @@
 {% block content %}
     
     <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image:url({{baseUrl}}/{{home.home_image1}});">
+      <div class="slider-item" style="background-image:url({{home.home_image1.url}});">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <div class="slider-item" style="background-image:url({{baseUrl}}/{{home.home_image2}});">
+      <div class="slider-item" style="background-image:url({{home.home_image2.url}});">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -152,92 +152,4 @@
 			</div>
 		</section>
 		
-    <section class="ftco-section testimony-section bg-light">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-2">
-          <div class="col-md-8 text-center heading-section ftco-animate">
-            <h2 class="mb-4"><span>What Students</span> Says About Us</h2>
-            <p>We belive in students what they think about us may be it's good or bad if bad we try to improve on that field</p>
-          </div>
-        </div>
-		<div class="row ftco-animate justify-content-center">
-          <div class="col-md-12">
-            <div class="carousel-testimony owl-carousel">
-			{% for data in say  %}
-              <div class="item">
-                <div class="testimony-wrap d-flex">
-				
-                  <div class="user-img mr-4" style="background-image: url({{baseUrl}}/{{data.Student_image}})">
-                  </div>
-                  <div class="text ml-2 bg-light">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                    <p>{{data.description}}</p>
-                    <p class="name">{{data.Student_name}}</p>
-                    <span class="position">Student</span>
-                  </div>
-                
-				</div>
-			  </div>
-            {% endfor %}
-			</div>
-			
-          </div>
-		</div>
-      </div>
-    </section>
-
-    {% comment %} <section class="ftco-section ftco-consult ftco-no-pt ftco-no-pb" style="background-image: url({{baseUrl}}/{{home.home_quote_image}});" data-stellar-background-ratio="0.5">
-		<div class="container">
-    		<div class="row justify-content-end">
-    			<div class="col-md-6 py-5 px-md-5 bg-primary">
-	          <div class="heading-section heading-section-white ftco-animate mb-5">
-	            <h2 class="mb-4">Request A Quote</h2>
-	            <p>To register to our courses or to know the Quote of courses send enquiry here.</p>
-	          </div>
-	          <form action="" class="appointment-form ftco-animate" method="post" >
-	    			    {% csrf_token %}	
-						<div class="d-md-flex">
-		    				<div class="form-group">
-		    					<input type="text" name="first_name" class="form-control" placeholder="First Name">
-		    				</div>
-		    				<div class="form-group ml-md-4">
-		    					<input type="text" name="last_name" class="form-control" placeholder="Last Name">
-		    				</div>
-	    				</div>
-	    				<div class="d-md-flex">
-	    					<div class="form-group">
-		    					<div class="form-field">
-          					<div class="select-wrap">
-                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                      <select name="course" id="" class="form-control">
-                      	<option value="">Select Your Course</option>
-                        <option value="">UPSC</option>
-                        <option value="">MPSC</option>
-                        <option value="">UPSC + MPSC</option>
-                        <option value="">UPSC Test series</option>
-                        <option value="">MPSC Test series</option>
-                      </select>
-                    </div>
-		              </div>
-		    				</div>
-	    					<div class="form-group ml-md-4">
-		    					<input type="text" name="phone" class="form-control" placeholder="Phone">
-		    				</div>
-	    				</div>
-	    				<div class="d-md-flex">
-	    					<div class="form-group">
-		              <textarea name="message" id="" cols="30" rows="2" class="form-control" placeholder="Message"></textarea>
-		            </div>
-		            <div class="form-group ml-md-4">
-		              <input type="submit" value="Request A Quote" class="btn btn-secondary py-3 px-4">
-		            </div>
-	    				</div>
-	    			</form>
-    			</div>
-        </div>
-    	</div>
-    </section> {% endcomment %}
-	<br>
 {% endblock %}
